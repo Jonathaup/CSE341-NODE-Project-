@@ -1,10 +1,9 @@
 {
-    "restaurants":{
-        "name":    "mcdonalds"       ,
-        "address":    "1200 e 1880 w, 84005"       ,
-        "phone":      "8018008955"       ,
-        "email":       "mc@gmail.com"      ,
-        "website":     "www.mcdonalds.com"   
-        
-    }
+  "restaurants": {
+    "name": "mcdonalds",
+    "address": "1200 e 1880 w, 84005",
+    "phone": "8018008955",
+    "email": "mc@gmail.com",
+    "website": "www.mcdonalds.com"
+  }
 }

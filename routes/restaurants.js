@@ -10,5 +10,3 @@ router.post('/', restaurantsController.createRestaurant);
 // router.delete('/:id', restaurantsController.deleteRestaurant);
 
 module.exports = router;
-
-

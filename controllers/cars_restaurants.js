@@ -59,11 +59,7 @@ const updatecars = async (req, res) => {
 
 const deletecars = async (req, res) => {
   const userId = new ObjectId(req.params.id);
-  const response = await mongodb
-    .getDb()
-    .db()
-    .collection('cars')
-    .deleteMany({ _id: userId }, true);
+  const response = await mongodb.getDb().db().collection('cars').deleteMany({ _id: userId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
@@ -72,14 +68,7 @@ const deletecars = async (req, res) => {
   }
 };
 
-
-
-
-
 // Restaurants Functions
-
-
-
 
 const getAllRestaurant = async (req, res) => {
   const result = await mongodb.getDb().db().collection('Restaurants').find();
@@ -152,5 +141,15 @@ const deleteRestaurant = async (req, res) => {
   }
 };
 
-module.exports = { getAllcars, getSinglecars, createcars, updatecars, deletecars,
-  getAllRestaurant, getSingleRestaurant, createRestaurant, updateRestaurant, deleteRestaurant};
+module.exports = {
+  getAllcars,
+  getSinglecars,
+  createcars,
+  updatecars,
+  deletecars,
+  getAllRestaurant,
+  getSingleRestaurant,
+  createRestaurant,
+  updateRestaurant,
+  deleteRestaurant
+};
