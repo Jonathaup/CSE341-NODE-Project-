@@ -1,0 +1,26 @@
+Restaurants
+
+    _Id         | MongoDB_ID
+    name        | string
+    address     | string
+    phone       | string
+    email       | string
+    website     | string
+
+
+
+
+
+Cars
+
+    _Id              | MongoDB_ID
+    make             | string
+    model            | string
+    trim             | string
+    year             | string
+    driveType        | string
+    color            | string
+    titleType        | boolean
+    miles            | number
+    transmissionType | string
+    carType          | string

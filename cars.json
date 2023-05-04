@@ -1,0 +1,16 @@
+{
+    "cars":{
+        "make":    "toyota"       ,
+        "model":    "corolla"       ,
+        "trim":      "limited"       ,
+        "year":       "2020"      ,
+        "driveType":     "awd"   ,
+        "color":          "negro"  ,
+        "titleType":   "clean"     ,
+        "miles":       "20000"     ,
+        "transmissionType": "automatic",
+        "carType": "car"
+
+
+    }
+}
