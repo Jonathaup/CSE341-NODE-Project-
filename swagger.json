@@ -16,6 +16,124 @@
         "responses": {}
       }
     },
+    "post": {
+      "description": "",
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "201": {
+          "description": "Created"
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    }
+  },
+  "/restaurants/{id}": {
+    "get": {
+      "description": "",
+      "produces": ["application/json"],
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK"
+        }
+      }
+    },
+    "put": {
+      "description": "",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              },
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "website": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "No Content"
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    },
+    "delete": {
+      "description": "",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        }
+      ],
+      "responses": {
+        "204": {
+          "description": "No Content"
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    },
     "/cars/": {
       "get": {
         "description": "",
@@ -36,20 +154,35 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
-                  "example": "any"
+                "make": {
+                  "type": "string"
                 },
-                "lastName": {
-                  "example": "any"
+                "model": {
+                  "type": "string"
                 },
-                "email": {
-                  "example": "any"
+                "trim": {
+                  "type": "string"
                 },
-                "favoriteColor": {
-                  "example": "any"
+                "year": {
+                  "type": "string"
                 },
-                "birthday": {
-                  "example": "any"
+                "driveType": {
+                  "type": "string"
+                },
+                "color": {
+                  "type": "string"
+                },
+                "titleType": {
+                  "type": "string"
+                },
+                "miles": {
+                  "type": "string"
+                },
+                "transmissionType": {
+                  "type": "string"
+                },
+                "carType": {
+                  "type": "string"
                 }
               }
             }
@@ -65,7 +198,7 @@
         }
       }
     },
-    "/contacts/{id}": {
+    "/cars/{id}": {
       "get": {
         "description": "",
         "produces": ["application/json"],
@@ -98,20 +231,35 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstName": {
-                  "example": "any"
+                "make": {
+                  "type": "string"
                 },
-                "lastName": {
-                  "example": "any"
+                "model": {
+                  "type": "string"
                 },
-                "email": {
-                  "example": "any"
+                "trim": {
+                  "type": "string"
                 },
-                "favoriteColor": {
-                  "example": "any"
+                "year": {
+                  "type": "string"
                 },
-                "birthday": {
-                  "example": "any"
+                "driveType": {
+                  "type": "string"
+                },
+                "color": {
+                  "type": "string"
+                },
+                "titleType": {
+                  "type": "string"
+                },
+                "miles": {
+                  "type": "string"
+                },
+                "transmissionType": {
+                  "type": "string"
+                },
+                "carType": {
+                  "type": "string"
                 }
               }
             }

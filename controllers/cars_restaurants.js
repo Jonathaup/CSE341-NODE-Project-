@@ -11,7 +11,7 @@ const getAllcars = async (req, res) => {
 
 const getSinglecars = async (req, res) => {
   const userId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db().collection('Cars').find({ _id: userId });
+  const result = await mongodb.getDb().db().collection('cars').find({ _id: userId });
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
@@ -19,25 +19,25 @@ const getSinglecars = async (req, res) => {
 };
 
 const createcars = async (req, res) => {
-  const contact = {
+  const car = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
     favoriteColor: req.body.favoriteColor,
     birthday: req.body.birthday
   };
-  const response = await mongodb.getDb().db().collection('Cars').insertOne(contact);
+  const response = await mongodb.getDb().db().collection('cars').insertOne(car);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
-    res.status(500).json(response.error || 'Some error occurred while creating the contact.');
+    res.status(500).json(response.error || 'Some error occurred while creating the car.');
   }
 };
 
 const updatecars = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
-  const contact = {
+  const car = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
@@ -47,13 +47,13 @@ const updatecars = async (req, res) => {
   const response = await mongodb
     .getDb()
     .db()
-    .collection('Cars')
-    .replaceOne({ _id: userId }, contact);
+    .collection('cars')
+    .replaceOne({ _id: userId }, car);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
   } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+    res.status(500).json(response.error || 'Some error occurred while updating the car.');
   }
 };
 
@@ -64,23 +64,23 @@ const deletecars = async (req, res) => {
   if (response.deletedCount > 0) {
     res.status(204).send();
   } else {
-    res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
+    res.status(500).json(response.error || 'Some error occurred while deleting the car.');
   }
 };
 
 // Restaurants Functions
 
-const getAllRestaurant = async (req, res) => {
-  const result = await mongodb.getDb().db().collection('Restaurants').find();
+const getAllrestaurants = async (req, res) => {
+  const result = await mongodb.getDb().db().collection('restaurants').find();
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
   });
 };
 
-const getSingleRestaurant = async (req, res) => {
+const getSinglerestaurant = async (req, res) => {
   const userId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db().collection('Restaurants').find({ _id: userId });
+  const result = await mongodb.getDb().db().collection('restaurants').find({ _id: userId });
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
@@ -88,25 +88,25 @@ const getSingleRestaurant = async (req, res) => {
 };
 
 const createRestaurant = async (req, res) => {
-  const contact = {
+  const restaurant = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
     favoriteColor: req.body.favoriteColor,
     birthday: req.body.birthday
   };
-  const response = await mongodb.getDb().db().collection('Restaurants').insertOne(contact);
+  const response = await mongodb.getDb().db().collection('restaurants').insertOne(restaurant);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
-    res.status(500).json(response.error || 'Some error occurred while creating the contact.');
+    res.status(500).json(response.error || 'Some error occurred while creating the restaurant.');
   }
 };
 
 const updateRestaurant = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
-  const contact = {
+  const restaurant = {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
@@ -116,13 +116,13 @@ const updateRestaurant = async (req, res) => {
   const response = await mongodb
     .getDb()
     .db()
-    .collection('Restaurants')
-    .replaceOne({ _id: userId }, contact);
+    .collection('restaurants')
+    .replaceOne({ _id: userId }, restaurant);
   console.log(response);
   if (response.modifiedCount > 0) {
     res.status(204).send();
   } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the contact.');
+    res.status(500).json(response.error || 'Some error occurred while updating the restaurant.');
   }
 };
 
@@ -131,13 +131,13 @@ const deleteRestaurant = async (req, res) => {
   const response = await mongodb
     .getDb()
     .db()
-    .collection('Restaurants')
+    .collection('restaurants')
     .deleteMany({ _id: userId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
   } else {
-    res.status(500).json(response.error || 'Some error occurred while deleting the contact.');
+    res.status(500).json(response.error || 'Some error occurred while deleting the restaurant.');
   }
 };
 
@@ -147,8 +147,8 @@ module.exports = {
   createcars,
   updatecars,
   deletecars,
-  getAllRestaurant,
-  getSingleRestaurant,
+  getAllrestaurants,
+  getSinglerestaurant,
   createRestaurant,
   updateRestaurant,
   deleteRestaurant

@@ -1,0 +1,79 @@
+
+### Get all contacts
+GET http://localhost:3000/cars HTTP/1.1
+
+### Get contact by id
+GET http://localhost:3000/cars/64535815fca8687c4e70bfdd HTTP/1.1
+
+### Get contact by id
+GET http://localhost:3000/contacts/64435deec9a77755a764b566 HTTP/1.1
+
+### Get contact by id
+GET http://localhost:3000/contacts/64435e36c9a77755a764b567 HTTP/1.1
+
+### Create contact
+POST http://localhost:3000/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Jorge",
+    "lastName":"Rabanal",
+    "email":"JorgeR@gmail.com",
+    "favoriteColor":"Brown",
+    "birthday":"06/19/1980"
+}
+
+### PUT contact
+PUT http://localhost:3000/contacts/6441f0a2929328591469eee9 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Anggi",
+    "lastName":"Rabanal",
+    "email":"rabanal@gmail.com",
+    "favoriteColor":"negro",
+    "birthday":"12/12/12"
+}
+### DELETE contact
+DELETE http://localhost:3000/contacts/6449d701087aeaec08fbfb02 HTTP/1.1
+
+
+
+
+// PRODUCTION Deploy
+### Get all contacts
+GET https://cse341-node-jfdg.onrender.com/contacts
+
+
+### Get contact by id
+GET https://cse341-node-jfdg.onrender.com/contacts/6441f0a2929328591469eee9
+
+
+### Create contact
+POST https://cse341-node-jfdg.onrender.com/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Jorge",
+    "lastName":"Rabanal",
+    "email":"JorgeR@gmail.com",
+    "favoriteColor":"Brown",
+    "birthday":"06/19/1980"
+}
+
+
+### PUT contact
+PUT https://cse341-node-jfdg.onrender.com/contacts/6441f0a2929328591469eee9 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Anggi",
+    "lastName":"Rabanal",
+    "email":"rabanal@gmail.com",
+    "favoriteColor":"negro",
+    "birthday":"12/12/12"
+}
+
+
+### DELETE contact
+DELETE https://cse341-node-jfdg.onrender.com/contacts/6449ddc9f9b9ce1e7d6c21a2 HTTP/1.1
