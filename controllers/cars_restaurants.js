@@ -76,7 +76,7 @@ const deletecars = async (req, res) => {
     .deleteMany({ _id: userId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
-    res.status(204).send();
+    res.status(200).send();
   } else {
     res.status(500).json(response.error || 'Some error occurred while deleting the car.');
   }
@@ -157,7 +157,7 @@ const deleteRestaurant = async (req, res) => {
     .deleteMany({ _id: userId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
-    res.status(204).send();
+    res.status(200).send();
   } else {
     res.status(500).json(response.error || 'Some error occurred while deleting the restaurant.');
   }
