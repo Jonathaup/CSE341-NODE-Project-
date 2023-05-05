@@ -1,79 +1,184 @@
 
-### Get all contacts
+# LOCAL REQUEST FOR CARS
+
+
+### Get all cars
 GET http://localhost:3000/cars HTTP/1.1
 
-### Get contact by id
+### Get car by id
 GET http://localhost:3000/cars/64535815fca8687c4e70bfdd HTTP/1.1
 
-### Get contact by id
-GET http://localhost:3000/contacts/64435deec9a77755a764b566 HTTP/1.1
-
-### Get contact by id
-GET http://localhost:3000/contacts/64435e36c9a77755a764b567 HTTP/1.1
-
-### Create contact
-POST http://localhost:3000/contacts HTTP/1.1
+### Create car
+POST http://localhost:3000/cars HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"Jorge",
-    "lastName":"Rabanal",
-    "email":"JorgeR@gmail.com",
-    "favoriteColor":"Brown",
-    "birthday":"06/19/1980"
+     "make": "hyundai",
+    "model": "elantra",
+    "trim": "limited",
+    "year": "2012",
+    "driveType": "awd",
+    "color": "blue",
+    "titleType": "clean",
+    "miles": "100000",
+    "transmissionType": "automatic",
+    "carType": "car"
 }
 
-### PUT contact
-PUT http://localhost:3000/contacts/6441f0a2929328591469eee9 HTTP/1.1
+### PUT car
+PUT http://localhost:3000/cars/64535815fca8687c4e70bfdd HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"Anggi",
-    "lastName":"Rabanal",
-    "email":"rabanal@gmail.com",
-    "favoriteColor":"negro",
-    "birthday":"12/12/12"
+    "make": "toyota",
+    "model": "corolla",
+    "trim": "limited",
+    "year": "2020",
+    "driveType": "awd",
+    "color": "negro",
+    "titleType": "clean",
+    "miles": "20000",
+    "transmissionType": "automatic",
+    "carType": "car"
 }
-### DELETE contact
-DELETE http://localhost:3000/contacts/6449d701087aeaec08fbfb02 HTTP/1.1
+### DELETE car
+DELETE http://localhost:3000/cars/ HTTP/1.1
 
 
 
-
-// PRODUCTION Deploy
-### Get all contacts
-GET https://cse341-node-jfdg.onrender.com/contacts
+# LOCAL REQUEST FOR RESTAURANTS
 
 
-### Get contact by id
-GET https://cse341-node-jfdg.onrender.com/contacts/6441f0a2929328591469eee9
+### Get all restaurants
+GET http://localhost:3000/restaurants HTTP/1.1
 
+### Get restaurant by id
+GET http://localhost:3000/restaurants/64547098e2193387e9200821 HTTP/1.1
 
-### Create contact
-POST https://cse341-node-jfdg.onrender.com/contacts HTTP/1.1
+### Create restaurants
+POST http://localhost:3000/restaurants HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"Jorge",
-    "lastName":"Rabanal",
-    "email":"JorgeR@gmail.com",
-    "favoriteColor":"Brown",
-    "birthday":"06/19/1980"
+  "name": "Wendy",
+  "address": "50 e 300 n",
+  "phone": "7058049533",
+  "email": "wendy@gmail.com",
+  "website": "wendy.com"
 }
 
-
-### PUT contact
-PUT https://cse341-node-jfdg.onrender.com/contacts/6441f0a2929328591469eee9 HTTP/1.1
+### PUT restaurant
+PUT http://localhost:3000/restaurants/64547098e2193387e9200821 HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"Anggi",
-    "lastName":"Rabanal",
-    "email":"rabanal@gmail.com",
-    "favoriteColor":"negro",
-    "birthday":"12/12/12"
+  "name": "Macdonald",
+  "address": "18 e 20 n",
+  "phone": "8018016485",
+  "email": "mc@gmail.com",
+  "website": "macdonald.com"
+}
+### DELETE restaurant
+DELETE http://localhost:3000/restaurants/ HTTP/1.1
+
+
+
+
+
+
+// Cars Swagger Deploy 
+
+
+
+
+### Get all cars
+GET https://cse341-node-project.onrender.com/cars
+
+
+### Get car by id
+GET https://cse341-node-project.onrender.com/cars/64535815fca8687c4e70bfdd
+
+
+### Create car
+POST https://cse341-node-project.onrender.com/cars HTTP/1.1
+content-type: application/json
+
+{
+    "make": "hyundai",
+    "model": "elantra",
+    "trim": "limited",
+    "year": "2012",
+    "driveType": "awd",
+    "color": "blue",
+    "titleType": "clean",
+    "miles": "100000",
+    "transmissionType": "automatic",
+    "carType": "car"
 }
 
 
-### DELETE contact
-DELETE https://cse341-node-jfdg.onrender.com/contacts/6449ddc9f9b9ce1e7d6c21a2 HTTP/1.1
+### PUT car
+PUT https://cse341-node-project.onrender.com/cars/64535815fca8687c4e70bfdd HTTP/1.1
+content-type: application/json
+
+{
+    "make": "toyota",
+    "model": "corolla",
+    "trim": "limited",
+    "year": "2020",
+    "driveType": "awd",
+    "color": "negro",
+    "titleType": "clean",
+    "miles": "20000",
+    "transmissionType": "automatic",
+    "carType": "car"
+}
+
+
+### DELETE car
+DELETE https://cse341-node-project.onrender.com/cars/ HTTP/1.1
+
+
+
+
+// Restaurants Swagger Deploy 
+
+
+
+
+### Get all restaurants
+GET https://cse341-node-project.onrender.com/restaurants
+
+
+### Get restaurant by id
+GET https://cse341-node-project.onrender.com/restaurants/64547098e2193387e9200821
+
+
+### Create restaurant
+POST https://cse341-node-project.onrender.com/restaurants HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Wendy",
+  "address": "50 e 300 n",
+  "phone": "7058049533",
+  "email": "wendy@gmail.com",
+  "website": "wendy.com"
+}
+
+
+### PUT restaurant
+PUT https://cse341-node-project.onrender.com/restaurants/64547098e2193387e9200821 HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Macdonald",
+  "address": "18 e 20 n",
+  "phone": "8018016485",
+  "email": "mc@gmail.com",
+  "website": "macdonald.com"
+}
+
+
+### DELETE restaurant
+DELETE https://cse341-node-project.onrender.com/restaurant/ HTTP/1.1

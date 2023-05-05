@@ -56,7 +56,7 @@ const updatecars = async (req, res) => {
   };
   const response = await mongodb
     .getDb()
-    .db()
+    .db('project')
     .collection('cars')
     .replaceOne({ _id: userId }, car);
   console.log(response);
@@ -69,7 +69,11 @@ const updatecars = async (req, res) => {
 
 const deletecars = async (req, res) => {
   const userId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db('project').collection('cars').deleteMany({ _id: userId }, true);
+  const response = await mongodb
+    .getDb()
+    .db('project')
+    .collection('cars')
+    .deleteMany({ _id: userId }, true);
   console.log(response);
   if (response.deletedCount > 0) {
     res.status(204).send();
@@ -90,7 +94,11 @@ const getAllrestaurants = async (req, res) => {
 
 const getSinglerestaurant = async (req, res) => {
   const userId = new ObjectId(req.params.id);
-  const result = await mongodb.getDb().db('project').collection('restaurants').find({ _id: userId });
+  const result = await mongodb
+    .getDb()
+    .db('project')
+    .collection('restaurants')
+    .find({ _id: userId });
   result.toArray().then((lists) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists[0]);
@@ -105,7 +113,11 @@ const createRestaurant = async (req, res) => {
     email: req.body.email,
     website: req.body.website
   };
-  const response = await mongodb.getDb().db('project').collection('restaurants').insertOne(restaurant);
+  const response = await mongodb
+    .getDb()
+    .db('project')
+    .collection('restaurants')
+    .insertOne(restaurant);
   if (response.acknowledged) {
     res.status(201).json(response);
   } else {
@@ -125,7 +137,7 @@ const updateRestaurant = async (req, res) => {
   };
   const response = await mongodb
     .getDb()
-    .db()
+    .db('project')
     .collection('restaurants')
     .replaceOne({ _id: userId }, restaurant);
   console.log(response);
