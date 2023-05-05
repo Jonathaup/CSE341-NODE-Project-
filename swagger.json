@@ -26,19 +26,19 @@
             "type": "object",
             "properties": {
               "name": {
-                "type": "string"
+                "example": "any"
               },
               "address": {
-                "type": "string"
+                "example": "any"
               },
               "phone": {
-                "type": "string"
+                "example": "any"
               },
               "email": {
-                "type": "string"
+                "example": "any"
               },
               "website": {
-                "type": "string"
+                "example": "any"
               }
             }
           }
@@ -88,19 +88,19 @@
             "type": "object",
             "properties": {
               "name": {
-                "type": "string"
+                "example": "any"
               },
               "address": {
-                "type": "string"
+                "example": "any"
               },
               "phone": {
-                "type": "string"
+                "example": "any"
               },
               "email": {
-                "type": "string"
+                "example": "any"
               },
               "website": {
-                "type": "string"
+                "example": "any"
               }
             }
           }
@@ -155,34 +155,34 @@
               "type": "object",
               "properties": {
                 "make": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "model": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "trim": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "year": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "driveType": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "color": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "titleType": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "miles": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "transmissionType": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "carType": {
-                  "type": "string"
+                  "example": "any"
                 }
               }
             }
@@ -232,34 +232,34 @@
               "type": "object",
               "properties": {
                 "make": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "model": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "trim": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "year": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "driveType": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "color": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "titleType": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "miles": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "transmissionType": {
-                  "type": "string"
+                  "example": "any"
                 },
                 "carType": {
-                  "type": "string"
+                  "example": "any"
                 }
               }
             }
