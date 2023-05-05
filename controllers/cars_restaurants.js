@@ -20,11 +20,16 @@ const getSinglecars = async (req, res) => {
 
 const createcars = async (req, res) => {
   const car = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
+    make: req.body.make,
+    model: req.body.model,
+    trim: req.body.trim,
+    year: req.body.year,
+    driveType: req.body.driveType,
+    color: req.body.color,
+    titleType: req.body.titleType,
+    miles: req.body.miles,
+    transmissionType: req.body.transmissionType,
+    carType: req.body.carType
   };
   const response = await mongodb.getDb().db().collection('cars').insertOne(car);
   if (response.acknowledged) {
@@ -38,11 +43,16 @@ const updatecars = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const car = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
+    make: req.body.make,
+    model: req.body.model,
+    trim: req.body.trim,
+    year: req.body.year,
+    driveType: req.body.driveType,
+    color: req.body.color,
+    titleType: req.body.titleType,
+    miles: req.body.miles,
+    transmissionType: req.body.transmissionType,
+    carType: req.body.carType
   };
   const response = await mongodb
     .getDb()
@@ -89,11 +99,11 @@ const getSinglerestaurant = async (req, res) => {
 
 const createRestaurant = async (req, res) => {
   const restaurant = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    name: req.body.name,
+    address: req.body.address,
+    phone: req.body.phone,
     email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
+    website: req.body.website
   };
   const response = await mongodb.getDb().db().collection('restaurants').insertOne(restaurant);
   if (response.acknowledged) {
@@ -107,11 +117,11 @@ const updateRestaurant = async (req, res) => {
   const userId = new ObjectId(req.params.id);
   // be aware of updateOne if you only want to update specific fields
   const restaurant = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
+    name: req.body.name,
+    address: req.body.address,
+    phone: req.body.phone,
     email: req.body.email,
-    favoriteColor: req.body.favoriteColor,
-    birthday: req.body.birthday
+    website: req.body.website
   };
   const response = await mongodb
     .getDb()
