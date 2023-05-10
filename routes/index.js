@@ -6,4 +6,3 @@ router.use('/cars', require('./cars'));
 router.use('/restaurants', require('./restaurants'));
 
 module.exports = router;
-
