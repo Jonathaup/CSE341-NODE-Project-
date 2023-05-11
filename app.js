@@ -1,18 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
+const session = require('express-session');
 
 const port = process.env.PORT || 3000;
 const app = express();
 
 app
   .use(bodyParser.json())
-  .use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-  })
-  .use('/', require('./routes'));
-
+  .use(session({
+    secret:"secret",
+    resave: false,
+    saveUninitialized: true,
+  }))
+  .use('/', require('./routes/index.js'));
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);
@@ -24,6 +25,7 @@ mongodb.initDb((err) => {
 
 const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
+
 const config = {
   authRequired: false,
   auth0Logout: true,
