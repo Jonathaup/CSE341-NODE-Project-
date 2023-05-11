@@ -27,8 +27,10 @@ app
       'Origin, X-Requested-Width, Content-Type, Accept, Z-Key, Authorization'
     );
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, PATH, OPTIONS, DELETE');
+    res.setHeader("Content-Security-Policy", "default-src 'none'; img-src 'self' data: https:;");
     next();
   })
+
   .use(cors({ methods: ['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH'] }))
   .use(cors({ origin: '*' }))
   .use('/', require('./routes/index.js'));
