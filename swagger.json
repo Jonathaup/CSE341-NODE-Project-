@@ -7,7 +7,7 @@
   },
   "host": "cse341-node-project.onrender.com",
   "basePath": "/",
-  "schemes": ["https"],
+  "schemes": ["http"],
   "paths": {
     "/restaurants": {
       "get": {

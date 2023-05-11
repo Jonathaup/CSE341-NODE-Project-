@@ -6,7 +6,7 @@ const doc = {
     description: 'Temple API'
   },
   host: 'cse341-node-project.onrender.com',
-  schemes: ['https']
+  schemes: ['http']
 };
 const outputFile = './swagger.json';
 const endpointsFiles = ['./routes/index.js'];
