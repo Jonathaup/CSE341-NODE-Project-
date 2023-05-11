@@ -2,9 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('./db/connect');
 const session = require('express-session');
-
+const passport = require('passport');
 const port = process.env.PORT || 3000;
 const app = express();
+const GitHubStrategy = require('passport-github2').Strategy;
+const cors = require('cors');
+
+
 
 app
   .use(bodyParser.json())
@@ -14,7 +18,52 @@ app
     saveUninitialized: true,
   }))
 
-  .use('/', require('./routes/index.js'));
+  .use(passport.initialize())
+  .use(passport.session())
+  .use((req, res, next) => {
+    res.setHeader("Access-Controll-Allow-Origin","*");
+    res.setHeader("Access-Control-Allow-Headers",
+    "Origin, X-Requested-Width, Content-Type, Accept, Z-Key, Authorization"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "POST, GET, PUT, PATH, OPTIONS, DELETE"
+    );
+    next();
+    })
+    .use(cors({methods:['GET','POST','DELETE','UPDATE','PUT','PATCH']}))
+    .use(cors({origin: '*'}))
+    .use('/', require('./routes/index.js'));
+
+passport.use(new GitHubStrategy ({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: process.env.CALLBACK_URL,
+
+
+},
+function(accessToken,refreshToken, profile, done){
+  return done(null, profile);
+}
+));
+
+passport.serializeUser((user, done) =>{
+  done(null, user);
+});
+passport.deserializeUser((user, done) =>{
+  done(null,user);
+});
+
+app.get('/', (req, res) => {
+  res.send(req.session.user != undefined ? `Logged in` : 'Logged out')});
+
+app.get('/github/callback', passport.authenticate('github',{
+    failureRedirect: '/api-docs', session: false}),
+    (req, res) => {
+    res.session.user = req.user;
+    res.redirect('/');
+  });
+  
   
 mongodb.initDb((err) => {
   if (err) {
@@ -25,26 +74,10 @@ mongodb.initDb((err) => {
   }
 });
 
-const { auth, requiresAuth } = require('express-openid-connect');
-require('dotenv').config();
 
-const config = {
-  authRequired: false,
-  auth0Logout: true,
-  secret: process.env.SECRET,
-  baseURL: process.env.BASE_URL,
-  clientID: process.env.CLIENT_ID,
-  issuerBaseURL: process.env.ISSUER_BASE_URL
-};
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
-app.use(auth(config));
 
 // req.isAuthenticated is provided from the auth router
-app.get('/', (req, res) => {
-  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
-});
 
-app.get('/profile', requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.oidc.user));
-});
+
