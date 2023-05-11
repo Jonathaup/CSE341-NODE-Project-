@@ -13,7 +13,9 @@ app
     resave: false,
     saveUninitialized: true,
   }))
+
   .use('/', require('./routes/index.js'));
+  
 mongodb.initDb((err) => {
   if (err) {
     console.log(err);
