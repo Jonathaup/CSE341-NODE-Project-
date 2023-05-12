@@ -1,13 +1,13 @@
 {
   "name": "cse341-node-project",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "server.js",
   "engines": {
     "node": ">=14 <15"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js",
+    "start": "nodemon server.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
     "format": "prettier --write ./**/*.{js,jsx,ts,tsx,css,md,json} --config ./.prettierrc",
