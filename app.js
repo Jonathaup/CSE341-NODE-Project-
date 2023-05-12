@@ -8,13 +8,14 @@ const app = express();
 const GitHubStrategy = require('passport-github2').Strategy;
 const cors = require('cors');
 
+
 app
   .use(bodyParser.json())
   .use(
     session({
       secret: 'mysecret',
       resave: false,
-      saveUninitialized: true
+      saveUninitialized: true,
     })
   )
 
